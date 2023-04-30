@@ -8,6 +8,11 @@
   position: absolute;
   top: -36px;
   right: 0;
+  background-image: url("../../../images/popup-close-btn-image.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
   transition: opacity .2s linear;
 }
 

@@ -10,6 +10,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("../../../images/profile-add-btn-image.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px auto;
+  cursor: pointer;
   transition: opacity .2s linear;
 }
 
@@ -22,5 +27,6 @@
     width: 150px;
     margin-top: 35px;
     align-self: flex-start;
+    background-size: 22px auto;
   }
 }

@@ -6,6 +6,9 @@
   text-align: center;
   color: #fff;
   margin: 14px 0 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 1024px) {

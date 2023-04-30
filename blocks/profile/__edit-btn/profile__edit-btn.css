@@ -2,6 +2,10 @@
   width: 18px;
   height: 18px;
   background-color: #000;
+  background-image: url("../../../images/profile-edit-btn-image.svg");
+  background-size: 7.5px auto;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 1px solid #fff;
   padding: 0;
   box-sizing: border-box;
@@ -9,6 +13,7 @@
   justify-content: center;
   align-items: center;
   margin: 8px 0 0 10px;
+  cursor: pointer;
   transition: opacity .2s linear;
 }
 
@@ -21,5 +26,6 @@
     width: 24px;
     height: 24px;
     margin: 15px 0 0 18px;
+    background-size: 10px auto;
   }
 }
