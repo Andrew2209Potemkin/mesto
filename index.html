@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Место</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="page">
+  <div class="wrapper">
+    <header class="header">
+      <div class="header__logo"></div>
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__avatar"></div>
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit-btn" type="button"><img src="./images/profile-edit-btn-image.svg" alt="Белый карандаш" class="profile__edit-btn-image"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+        <button class="profile__add-btn" type="button"><img src="./images/profile-add-btn-image.svg" alt="Белый плюс" class="profile__add-btn-image"></button>
+      </section>
+      <section class="elements">
+        <article class="element">
+          <img src="./images/krch-republic.jpg" alt="Карачаево-Черкесская Республика" class="element__image">
+          <div class="element__title-zone">
+            <h2 class="element__title">Карачаево-Черкесская Республика</h2>
+            <div class="element__like-icon"></div>
+          </div>
+        </article>
+        <article class="element">
+          <img src="./images/mys-ostryy.jpg" alt="Мыс Острый" class="element__image">
+          <div class="element__title-zone">
+            <h2 class="element__title">Мыс Острый</h2>
+            <div class="element__like-icon"></div>
+          </div>
+        </article>
+        <article class="element">
+          <img src="./images/koyonsaari.jpg" alt="Койонсаари" class="element__image">
+          <div class="element__title-zone">
+            <h2 class="element__title">Койонсаари</h2>
+            <div class="element__like-icon"></div>
+          </div>
+        </article>
+        <article class="element">
+          <img src="./images/kurshskaya-kosa.jpg" alt="Куршская коса" class="element__image">
+          <div class="element__title-zone">
+            <h2 class="element__title">Куршская коса</h2>
+            <div class="element__like-icon"></div>
+          </div>
+        </article>
+        <article class="element">
+          <img src="./images/moskovskaya-oblast'.jpg" alt="Московская область" class="element__image">
+          <div class="element__title-zone">
+            <h2 class="element__title">Московская область</h2>
+            <div class="element__like-icon"></div>
+          </div>
+        </article>
+        <article class="element">
+          <img src="./images/novosibirsk.jpg" alt="Новосибирск" class="element__image">
+          <div class="element__title-zone">
+            <h2 class="element__title">Новосибирск</h2>
+            <div class="element__like-icon"></div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2023 A.Potemkin</p>
+    </footer>
+  </div>
+  <div class="popup">
+    <div class="popup__container">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form">
+        <fieldset class="popup__form-items">
+          <input type="text" placeholder="Имя" class="popup__form-item popup__form-item_type_name">
+          <input type="text" placeholder="О себе" class="popup__form-item popup__form-item_type_job">
+        </fieldset>
+        <button type="submit" class="popup__submit-btn">Сохранить</button>
+      </form>
+      <button class="popup__close-btn" type="button"><img src="./images/popup-close-btn-image.png" alt="Белый крестик" class="popup__close-btn-image"></button>
+    </div>
+  </div>
+  <script src="./scripts/index.js"></script>
+</body>
+</html>

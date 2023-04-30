@@ -1,0 +1,13 @@
+.popup__close-btn-image {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .popup__close-btn-image {
+    width: 32px;
+    height: 32px;
+  }
+}
