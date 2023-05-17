@@ -1,7 +1,7 @@
 .popup__close-btn {
   width: 20px;
   height: 20px;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   padding: 0;
   box-sizing: border-box;

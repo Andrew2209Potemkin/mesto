@@ -21,59 +21,26 @@
         </div>
         <button class="profile__add-btn" type="button" aria-label="Создать"></button>
       </section>
-      <section class="elements">
-        <article class="element">
-          <img src="./images/krch-republic.jpg" alt="Карачаево-Черкесская Республика" class="element__image">
-          <div class="element__title-zone">
-            <h2 class="element__title">Карачаево-Черкесская Республика</h2>
-            <button class="element__like-icon-btn" aria-label="Нравится" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img src="./images/mys-ostryy.jpg" alt="Мыс Острый" class="element__image">
-          <div class="element__title-zone">
-            <h2 class="element__title">Мыс Острый</h2>
-            <button class="element__like-icon-btn" aria-label="Нравится" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img src="./images/koyonsaari.jpg" alt="Койонсаари" class="element__image">
-          <div class="element__title-zone">
-            <h2 class="element__title">Койонсаари</h2>
-            <button class="element__like-icon-btn" aria-label="Нравится" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img src="./images/kurshskaya-kosa.jpg" alt="Куршская коса" class="element__image">
-          <div class="element__title-zone">
-            <h2 class="element__title">Куршская коса</h2>
-            <button class="element__like-icon-btn" aria-label="Нравится" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img src="./images/moskovskaya-oblast'.jpg" alt="Московская область" class="element__image">
-          <div class="element__title-zone">
-            <h2 class="element__title">Московская область</h2>
-            <button class="element__like-icon-btn" aria-label="Нравится" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img src="./images/novosibirsk.jpg" alt="Новосибирск" class="element__image">
-          <div class="element__title-zone">
-            <h2 class="element__title">Новосибирск</h2>
-            <button class="element__like-icon-btn" aria-label="Нравится" type="button"></button>
-          </div>
-        </article>
-      </section>
+      <section class="elements"></section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">© 2023 A.Potemkin</p>
     </footer>
   </div>
-  <div class="popup">
+  <template id="element">
+    <article class="element">
+      <button class="element__delete-icon-btn" aria-label="Удалить" type="button"></button>
+      <img src="#" alt="#" class="element__image">
+      <div class="element__title-zone">
+        <h2 class="element__title"></h2>
+        <button class="element__like-icon-btn" aria-label="Нравится" type="button"></button>
+      </div>
+    </article>
+  </template>
+  <div class="popup popup_type_edit">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="data">
+      <form class="popup__form popup__form_type_edit" name="data">
         <fieldset class="popup__form-items">
           <input type="text" name="name" placeholder="Имя" class="popup__form-item popup__form-item_type_name">
           <input type="text" name="info" placeholder="О себе" class="popup__form-item popup__form-item_type_job">
@@ -83,6 +50,29 @@
       <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
     </div>
   </div>
+  <div class="popup popup_type_create">
+    <div class="popup__container">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form popup__form_type_create" name="data">
+        <fieldset class="popup__form-items">
+          <input type="text" name="name" placeholder="Название" class="popup__form-item popup__form-item_type_name-place">
+          <input type="text" name="url" placeholder="Ссылка на картинку" class="popup__form-item popup__form-item_type_url">
+        </fieldset>
+        <button type="submit" class="popup__submit-btn">Создать</button>
+      </form>
+      <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
+    </div>
+  </div>
+  <div class="popup popup_type_image">
+    <div class="popup__container-image">
+      <figure class="popup__figure">
+        <img src="#" alt="#" class="popup__figure-image">
+        <figcaption class="popup__caption"></figcaption>
+      </figure>
+      <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
+    </div>
+  </div>
+  <script src="./scripts/initialCards.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
