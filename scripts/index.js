@@ -36,8 +36,8 @@ function createElement(element) {
   cardCreate.querySelector('.element__like-icon-btn').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__like-icon-btn_active');
   });
-  cardCreate.querySelector('.element__delete-icon-btn').addEventListener('click', function (evt) {
-    evt.target.closest('.element').remove();
+  cardCreate.querySelector('.element__delete-icon-btn').addEventListener('click', function () {
+    cardCreate.remove();
   });
   elementImage.addEventListener('click', function () {
     openPopup(popupTypeImage);
@@ -48,33 +48,33 @@ function createElement(element) {
   return cardCreate;
 };
 
-function addElement(cardAdd) {
+function addInitialElement(cardAdd) {
   elementsContainer.append(cardAdd);
 };
 
 initialCards.forEach(element => {
   const cardAdd = createElement(element);
-  addElement(cardAdd);
+  addInitialElement(cardAdd);
 });
 
-function handleFormSubmit(evt) {
+function handleFormTypeEditSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInputTypeEdit.value;
   profileSubTitle.textContent = jobInput.value;
   closePopup(popupTypeEdit);
 };
 
-function formSendHandler(evt) {
+function handleFormTypeCreateSubmit(evt) {
   evt.preventDefault();
   elementsContainer.prepend(createElement({ name: nameInputTypeCreate.value, link: urlInput.value }));
-  nameInputTypeCreate.value = "";
-  urlInput.value = "";
+  formElementTypeCreate.reset();
   closePopup(popupTypeCreate);
 };
 
 buttonClosePopups.forEach(element => {
   element.addEventListener('click', function (evt) {
-    evt.target.closest('.popup').classList.remove('popup_opened');
+    const popup = evt.target.closest('.popup');
+    closePopup(popup);
   });
 });
 
@@ -86,5 +86,5 @@ buttonEditProfile.addEventListener('click', function () {
 buttonAddProfile.addEventListener('click', function () {
   openPopup(popupTypeCreate);
 });
-formElementTypeEdit.addEventListener('submit', handleFormSubmit);
-formElementTypeCreate.addEventListener('submit', formSendHandler);
+formElementTypeEdit.addEventListener('submit', handleFormTypeEditSubmit);
+formElementTypeCreate.addEventListener('submit', handleFormTypeCreateSubmit);
