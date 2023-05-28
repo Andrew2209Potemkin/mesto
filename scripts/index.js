@@ -20,10 +20,19 @@ const profileSubTitle = document.querySelector('.profile__subtitle');
 
 function openPopup(item) {
   item.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupKey);
 };
 
 function closePopup(item) {
   item.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupKey);
+};
+
+function closePopupKey(evt) {
+  if (evt.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  };
 };
 
 function createElement(element) {
@@ -79,12 +88,32 @@ buttonClosePopups.forEach(element => {
 });
 
 buttonEditProfile.addEventListener('click', function () {
+  const inputList = Array.from(formElementTypeEdit.querySelectorAll('.popup__form-item'));
+  const buttonElement = formElementTypeEdit.querySelector('.popup__submit-btn');
   openPopup(popupTypeEdit);
   nameInputTypeEdit.value = profileTitle.textContent;
   jobInput.value = profileSubTitle.textContent;
+  inputList.forEach(() => {
+    isValid(formElementTypeEdit, formInput);
+    toggleButtonState(inputList, buttonElement);
+  });
 });
+
 buttonAddProfile.addEventListener('click', function () {
   openPopup(popupTypeCreate);
 });
+
+popupTypeEdit.addEventListener('click', function (evt) {
+  if (evt.currentTarget === evt.target) {
+    closePopup(popupTypeEdit);
+  };
+});
+
+popupTypeCreate.addEventListener('click', function (evt) {
+  if (evt.currentTarget === evt.target) {
+    closePopup(popupTypeCreate);
+  };
+});
+
 formElementTypeEdit.addEventListener('submit', handleFormTypeEditSubmit);
 formElementTypeCreate.addEventListener('submit', handleFormTypeCreateSubmit);
