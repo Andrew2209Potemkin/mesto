@@ -10,6 +10,10 @@ const formObject = {
 const formElement = document.querySelector('.popup__form');
 const formInput = formElement.querySelector('.popup__form-item');
 
+const turnOffButton = (button) => {
+  button.setAttribute('disabled', true);
+};
+
 const showInputError = (formElement, formInput, errorMessage, formObject) => {
   const formError = formElement.querySelector(`.${formInput.id}-error`);
   formInput.classList.add(formObject.inputErrorClass);
@@ -59,7 +63,7 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (inputList, buttonElement, formObject) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.setAttribute('disabled', true);
+    turnOffButton(buttonElement);
     buttonElement.classList.add(formObject.inactiveButtonClass);
   } else {
     buttonElement.removeAttribute('disabled', false);

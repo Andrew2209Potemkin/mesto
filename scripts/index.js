@@ -107,7 +107,7 @@ buttonEditProfile.addEventListener('click', function () {
 buttonAddProfile.addEventListener('click', function () {
   openPopup(popupTypeCreate);
   buttonCreateSubmit.classList.add('popup__submit-btn_disabled');
-  buttonCreateSubmit.setAttribute('disabled', true);
+  turnOffButton(buttonCreateSubmit);
 });
 
 formElementTypeEdit.addEventListener('submit', handleFormTypeEditSubmit);
