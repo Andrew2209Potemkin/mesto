@@ -1,7 +1,6 @@
 const elementsContainer = document.querySelector('.elements');
 const buttonEditProfile = document.querySelector('.profile__edit-btn');
 const buttonAddProfile = document.querySelector('.profile__add-btn');
-const buttonClosePopups = document.querySelectorAll('.popup__close-btn');
 const elementTemplate = document.querySelector('#element').content;
 const elementCard = elementTemplate.querySelector('.element');
 const popupTypeEdit = document.querySelector('.popup_type_edit');
@@ -17,6 +16,10 @@ const jobInput = document.querySelector('.popup__form-item_type_job');
 const urlInput = document.querySelector('.popup__form-item_type_url');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubTitle = document.querySelector('.profile__subtitle');
+const inputList = Array.from(formElementTypeEdit.querySelectorAll('.popup__form-item'));
+const buttonEditSubmit = formElementTypeEdit.querySelector('.popup__submit-btn');
+const buttonCreateSubmit = formElementTypeCreate.querySelector('.popup__submit-btn');
+const popups = document.querySelectorAll('.popup');
 
 function openPopup(item) {
   item.classList.add('popup_opened');
@@ -80,39 +83,31 @@ function handleFormTypeCreateSubmit(evt) {
   closePopup(popupTypeCreate);
 };
 
-buttonClosePopups.forEach(element => {
-  element.addEventListener('click', function (evt) {
-    const popup = evt.target.closest('.popup');
-    closePopup(popup);
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    };
+    if (evt.target.classList.contains('popup__close-btn')) {
+      closePopup(popup);
+    };
   });
 });
 
 buttonEditProfile.addEventListener('click', function () {
-  const inputList = Array.from(formElementTypeEdit.querySelectorAll('.popup__form-item'));
-  const buttonElement = formElementTypeEdit.querySelector('.popup__submit-btn');
   openPopup(popupTypeEdit);
   nameInputTypeEdit.value = profileTitle.textContent;
   jobInput.value = profileSubTitle.textContent;
   inputList.forEach(() => {
     isValid(formElementTypeEdit, formInput);
-    toggleButtonState(inputList, buttonElement);
+    toggleButtonState(inputList, buttonEditSubmit, formObject);
   });
 });
 
 buttonAddProfile.addEventListener('click', function () {
   openPopup(popupTypeCreate);
-});
-
-popupTypeEdit.addEventListener('click', function (evt) {
-  if (evt.currentTarget === evt.target) {
-    closePopup(popupTypeEdit);
-  };
-});
-
-popupTypeCreate.addEventListener('click', function (evt) {
-  if (evt.currentTarget === evt.target) {
-    closePopup(popupTypeCreate);
-  };
+  buttonCreateSubmit.classList.add('popup__submit-btn_disabled');
+  buttonCreateSubmit.setAttribute('disabled', true);
 });
 
 formElementTypeEdit.addEventListener('submit', handleFormTypeEditSubmit);
