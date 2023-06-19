@@ -19,7 +19,6 @@ const jobInput = document.querySelector('.popup__form-item_type_job');
 const urlInput = document.querySelector('.popup__form-item_type_url');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubTitle = document.querySelector('.profile__subtitle');
-const buttonCreateSubmit = formElementTypeCreate.querySelector('.popup__submit-btn');
 const popups = document.querySelectorAll('.popup');
 
 const formTypeCreateValidation = new FormValidator(formObject, formElementTypeCreate);
@@ -90,13 +89,12 @@ buttonEditProfile.addEventListener('click', function () {
   openPopup(popupTypeEdit);
   nameInputTypeEdit.value = profileTitle.textContent;
   jobInput.value = profileSubTitle.textContent;
-  formTypeEditValidation.isValidFormTypeEdit();
+  formTypeEditValidation.clearFormErrors();
 });
 
 buttonAddProfile.addEventListener('click', function () {
   openPopup(popupTypeCreate);
-  formTypeCreateValidation.showButtonError(buttonCreateSubmit);
-  formTypeCreateValidation.turnOffButton(buttonCreateSubmit);
+  formTypeCreateValidation.clearFormErrors();
 });
 
 formElementTypeEdit.addEventListener('submit', handleFormTypeEditSubmit);

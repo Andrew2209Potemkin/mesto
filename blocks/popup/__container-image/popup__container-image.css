@@ -1,16 +1,4 @@
 .popup__container-image {
-  max-width: 240px;
+  max-width: 75vw;
   position: relative;
-}
-
-@media screen and (min-width: 1024px) {
-  .popup__container-image {
-    max-width: 433px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .popup__container-image {
-    max-width: 816px;
-  }
 }
