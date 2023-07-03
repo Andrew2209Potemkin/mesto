@@ -1,9 +1,9 @@
-import { popupTypeImage, popupImage, popupCaption, openPopup, } from '../scripts/index.js';
 export class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -35,13 +35,6 @@ export class Card {
     this._element = null;
   }
 
-  _openPopupImage() {
-    openPopup(popupTypeImage);
-    popupImage.src = this._link;
-    popupImage.alt = this._name;
-    popupCaption.textContent = this._name;
-  }
-
   _setEventListeners() {
     this._buttonLike = this._element.querySelector('.element__like-icon-btn');
     this._buttonLike.addEventListener('click', () => {
@@ -52,7 +45,7 @@ export class Card {
     });
     this._elementImage = this._element.querySelector('.element__image');
     this._elementImage.addEventListener('click', () => {
-      this._openPopupImage();
+      this._handleCardClick(this._name, this._link);
     });
   }
 };
