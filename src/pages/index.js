@@ -50,11 +50,7 @@ popupTypeEditWithForm.setEventListeners();
 popupTypeEditWithForm.close();
 
 const popupTypeCreateWithForm = new PopupWithForm('.popup_type_create', (data) => {
-  const inputValue = {
-    name: data.name,
-    link: data.url
-  };
-  createElement(inputValue);
+  createElement(data);
   popupTypeCreateWithForm.close();
 });
 
@@ -63,9 +59,9 @@ popupTypeCreateWithForm.close();
 
 buttonEditProfile.addEventListener('click', function () {
   popupTypeEditWithForm.open();
-  const inputValue = userInfo.getUserInfo();
-  nameInputTypeEdit.value = inputValue.name;
-  jobInput.value = inputValue.job;
+  const { name, job } = userInfo.getUserInfo();
+  nameInputTypeEdit.value = name;
+  jobInput.value = job;
   formTypeEditValidation.clearFormErrors();
 });
 
