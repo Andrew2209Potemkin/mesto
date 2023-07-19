@@ -10,11 +10,15 @@ export class UserInfo {
   }
 
   setUserInfo(name, info) {
-    this._name.textContent = name;
-    this._job.textContent = info;
+    if (name && info) {
+      this._name.textContent = name;
+      this._job.textContent = info;
+    }
   }
 
   setUserAavatar(link) {
-    this._avatar.src = link;
+    if (link) {
+      this._avatar.src = link;
+    }
   }
 }

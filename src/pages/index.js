@@ -7,7 +7,7 @@ import { PopupWithForm } from '../components/PopupWithForm.js';
 import { UserInfo } from '../components/UserInfo.js';
 import { Api } from '../components/Api.js';
 import './index.css';
-import { PopupWithoutInputs } from '../components/PopupWithoutInputs.js';
+import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';
 
 const elementsContainer = '.elements';
 const buttonEditProfile = document.querySelector('.profile__edit-btn');
@@ -56,7 +56,7 @@ const popupWithImage = new PopupWithImage('.popup_type_image');
 popupWithImage.setEventListeners();
 
 //Инициализация попапа без инпутов
-const popupDeleteCard = new PopupWithoutInputs('.popup_type_delete');
+const popupDeleteCard = new PopupWithConfirmation('.popup_type_delete');
 popupDeleteCard.setEventListeners();
 
 //Инициализация ЮзерИнфо
@@ -121,7 +121,6 @@ const popupTypeEditWithForm = new PopupWithForm('.popup_type_edit', (data) => {
 });
 
 popupTypeEditWithForm.setEventListeners();
-popupTypeEditWithForm.close();
 
 //Инициализация попапа создания новой карточки
 const popupTypeCreateWithForm = new PopupWithForm('.popup_type_create', (data) => {
@@ -137,7 +136,6 @@ const popupTypeCreateWithForm = new PopupWithForm('.popup_type_create', (data) =
 });
 
 popupTypeCreateWithForm.setEventListeners();
-popupTypeCreateWithForm.close();
 
 //Инициализация попапа редактирования аватара
 const popupTypeAvatarWithForm = new PopupWithForm('.popup_type_avatar', (data) => {
@@ -153,7 +151,6 @@ const popupTypeAvatarWithForm = new PopupWithForm('.popup_type_avatar', (data) =
 });
 
 popupTypeAvatarWithForm.setEventListeners();
-popupTypeAvatarWithForm.close();
 
 //Кнопка открытия попапа редактирования профиля
 buttonEditProfile.addEventListener('click', function () {
@@ -162,16 +159,19 @@ buttonEditProfile.addEventListener('click', function () {
   nameInputTypeEdit.value = name;
   jobInput.value = job;
   formTypeEditValidation.clearFormErrors();
+  popupTypeEditWithForm.renderLoading(false);
 });
 
 //Кнопка открытия попапа создания карточки
 buttonAddProfile.addEventListener('click', function () {
   popupTypeCreateWithForm.open();
   formTypeCreateValidation.clearFormErrors();
+  popupTypeCreateWithForm.renderLoading(false);
 });
 
 //Кнопка открытия попапа редактирования аватара
 buttonEditAvatar.addEventListener('click', function () {
   popupTypeAvatarWithForm.open();
   formTypeAvatarValidation.clearFormErrors();
+  popupTypeAvatarWithForm.renderLoading(false);
 });
