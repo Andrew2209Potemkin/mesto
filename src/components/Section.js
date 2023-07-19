@@ -6,7 +6,7 @@ export class Section {
 
   //Применение колбэка ко всем элементам массива
   renderItems(items) {
-    items.forEach(item => {
+    items.reverse().forEach(item => {
       this._renderer(item);
     });
   }
