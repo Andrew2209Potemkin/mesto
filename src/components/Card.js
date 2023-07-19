@@ -10,7 +10,6 @@ export class Card {
     this._handleCardClick = handleCardClick;
     this._handleCardDelete = handleCardDelete;
     this._handleCardLike = handleCardLike;
-
   }
 
   //Клонирование разметки, получение шаблона карточки
