@@ -16,4 +16,4 @@
 *Управление содержимым.
 *Работа с массивами.
 
-* [Ссылка на публичный репозиторий] (https://andrew2209potemkin.github.io/mesto//index.html)
+* [Ссылка на публичный репозиторий] (https://andrew2209potemkin.github.io/mesto/)
