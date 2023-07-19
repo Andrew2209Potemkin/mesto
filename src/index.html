@@ -12,11 +12,14 @@
     </header>
     <main class="content">
       <section class="profile">
-        <div class="profile__avatar"></div>
+        <div class="profile__avatar">
+          <button class="profile__avatar-btn" type="button" aria-label="Редактировать"></button>
+          <img src="#" class="profile__avatar-image" alt="Фото пользователя">
+        </div>
         <div class="profile__info">
-          <h1 class="profile__title">Ник Фьюри</h1>
+          <h1 class="profile__title"></h1>
           <button class="profile__edit-btn" type="button" aria-label="Редактировать"></button>
-          <p class="profile__subtitle">Директор Щ.И.Т.</p>
+          <p class="profile__subtitle"></p>
         </div>
         <button class="profile__add-btn" type="button" aria-label="Создать"></button>
       </section>
@@ -32,7 +35,10 @@
       <img src="#" alt="#" class="element__image">
       <div class="element__title-zone">
         <h2 class="element__title"></h2>
-        <button class="element__like-icon-btn" aria-label="Нравится" type="button"></button>
+        <div class="element__like-zone">
+          <button class="element__like-icon-btn" aria-label="Нравится" type="button"></button>
+          <p class="element__number-like"></p>
+        </div>
       </div>
     </article>
   </template>
@@ -68,6 +74,26 @@
         <img src="#" alt="#" class="popup__figure-image">
         <figcaption class="popup__caption"></figcaption>
       </figure>
+      <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
+    </div>
+  </div>
+  <div class="popup popup_type_avatar">
+    <div class="popup__container">
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form class="popup__form popup__form_type_avatar" name="data" novalidate>
+        <input id="avatar-url-input" type="url" name="link" placeholder="Ссылка на картинку" class="popup__form-item popup__form-item_type_url" required>
+        <span class="avatar-url-input-error popup__form-error"></span>
+        <button type="submit" class="popup__submit-btn">Сохранить</button>
+      </form>
+      <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
+    </div>
+  </div>
+  <div class="popup popup_type_delete">
+    <div class="popup__container">
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form class="popup__form popup__form_type_delete" name="data" novalidate>
+        <button type="submit" class="popup__submit-btn">Да</button>
+      </form>
       <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
     </div>
   </div>

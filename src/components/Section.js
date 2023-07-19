@@ -1,16 +1,17 @@
 export class Section {
-  constructor({ data, renderer }, selector) {
-    this._initialArray = data;
+  constructor({ renderer }, selector) {
     this._renderer = renderer;
     this._container = document.querySelector(selector);
   }
 
-  renderItems() {
-    this._initialArray.forEach(item => {
+  //Применение колбэка ко всем элементам массива
+  renderItems(items) {
+    items.forEach(item => {
       this._renderer(item);
     });
   }
 
+  //Добавление элемента в разметку
   addItem(element) {
     this._container.prepend(element);
   }
